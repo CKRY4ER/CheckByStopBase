@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CheckByStopBase.CompanyStopBase.Domain\CheckByStopBase.CompanyStopBase.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
