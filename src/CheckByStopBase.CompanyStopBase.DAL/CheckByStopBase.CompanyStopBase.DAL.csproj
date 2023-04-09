@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CheckByStopBase.Domain\CheckByStopBase.Domain.csproj" />
-  </ItemGroup>
-
 </Project>
