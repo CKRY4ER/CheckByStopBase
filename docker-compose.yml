@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  pg:
+    container_name: check-by-stopbase-pg
+    image: postgres:13.8
+    environment:
+      POSTGRES_DB: company
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "54321:5432"
+    volumes:
+      - './data:/var/lib/postgresql/data'
+
