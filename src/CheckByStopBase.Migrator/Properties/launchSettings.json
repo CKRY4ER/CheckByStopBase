@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CheckByStopBase.Migrator": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
