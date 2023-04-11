@@ -1,20 +1,37 @@
-var builder = WebApplication.CreateBuilder(args);
+using CheckByStopBase.BackgroundServices.CompanyStopBase.ParserBackground.Configurations;
+using Serilog;
+using CheckByStopBase.CompanyStopBase.DAL;
+using CheckByStopBase.ServiceLayer;
+using CheckByStopBase.BackgroundServices;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using CheckByStopBase.RegistryParsers;
+using CheckByStopBase.RegistryParsers.Configurations;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
+
+var connectionString = builder.Configuration.GetConnectionString("main")!;
+var companyParserConfiguration = builder.Configuration.GetSection("CompanyParserConfiguration").Get<CompanyParserConfigurtionModel>()!;
+var companySftpConfiguration = builder.Configuration.GetSection("CompanySftpConfiguration").Get<SftpConfigurationModel>()!;
+
+builder.Services.AddCompanyRepositories(connectionString);
+builder.Services.AddCompanyService();
+builder.Services.AddCompanyParser(companySftpConfiguration);
+builder.Services.AddCompanyParserBackgroundService(companyParserConfiguration);
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
+builder.Services.AddFluentValidationAutoValidation();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 

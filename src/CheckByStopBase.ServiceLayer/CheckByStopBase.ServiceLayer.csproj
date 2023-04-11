@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CheckByStopBase.RegistryParsers\CheckByStopBase.RegistryParsers.csproj" />
+    <ProjectReference Include="..\CheckByStopBase.CompanyStopBase.DAL\CheckByStopBase.CompanyStopBase.DAL.csproj" />
   </ItemGroup>
 
 </Project>
