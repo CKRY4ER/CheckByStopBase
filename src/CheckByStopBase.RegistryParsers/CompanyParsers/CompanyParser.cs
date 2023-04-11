@@ -27,7 +27,7 @@ public sealed class CompanyParser : ICompanyParser
         _csvConverter = csvConverter;
     }
 
-    public async Task Parse(ConverterTypesEnum converterType)
+    public async Task Parse()
     {
         //var converter = _factory.GetConverter(converterType);
 
@@ -66,5 +66,5 @@ public sealed class CompanyParser : ICompanyParser
 
 public interface ICompanyParser
 {
-    Task Parse(ConverterTypesEnum converterType);
+    Task Parse();
 }

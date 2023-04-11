@@ -20,7 +20,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckByStopBase.RegistryParsers", "src\CheckByStopBase.RegistryParsers\CheckByStopBase.RegistryParsers.csproj", "{679481DF-2456-45BB-9AED-0BEF568C7CD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CheckByStopBase.RegistryParsers", "src\CheckByStopBase.RegistryParsers\CheckByStopBase.RegistryParsers.csproj", "{679481DF-2456-45BB-9AED-0BEF568C7CD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckByStopBase.BackgroundServices", "src\CheckByStopBase.BackgroundServices\CheckByStopBase.BackgroundServices.csproj", "{6E142C6C-6BD0-4BC3-87A3-FBAE29B12D0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +50,10 @@ Global
 		{679481DF-2456-45BB-9AED-0BEF568C7CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{679481DF-2456-45BB-9AED-0BEF568C7CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{679481DF-2456-45BB-9AED-0BEF568C7CD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E142C6C-6BD0-4BC3-87A3-FBAE29B12D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E142C6C-6BD0-4BC3-87A3-FBAE29B12D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E142C6C-6BD0-4BC3-87A3-FBAE29B12D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E142C6C-6BD0-4BC3-87A3-FBAE29B12D0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{E79FD8ED-FC19-4574-BBEA-BB2EADBCC9D7} = {1AD58248-06B4-4DDC-8F71-969E2C8334C8}
 		{A0EA1BD1-C0CE-4075-95CD-F46F8C96957D} = {1AD58248-06B4-4DDC-8F71-969E2C8334C8}
 		{679481DF-2456-45BB-9AED-0BEF568C7CD1} = {1AD58248-06B4-4DDC-8F71-969E2C8334C8}
+		{6E142C6C-6BD0-4BC3-87A3-FBAE29B12D0A} = {1AD58248-06B4-4DDC-8F71-969E2C8334C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2EEBCBC5-0172-4A64-9607-963124BE6E2E}
