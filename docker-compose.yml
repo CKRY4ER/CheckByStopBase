@@ -1,6 +1,37 @@
 version: '3.8'
 
 services:
+  check-by-stopbase-service-api:
+    container_name: check-by-stopbase-service-api
+    environment:
+      ConnectionStrings:main: host=check-by-stopbase-pg; port=5432; database=company; username=user; password=password;
+      CompanyParserConfiguration:RetryMinute: 1
+      CompanySftpConfiguration:Host: sftp
+      CompanySftpConfiguration:UserName: app
+      CompanySftpConfiguration:Password: passpowd
+      CompanySftpConfiguration:RemoteDirectory: /data/CompanyRegistry
+      Serilog:WriteTo:0:Name: Console
+      Serilog:WriteTo:0:Args:formatter: Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact
+    build:
+      context: .
+      dockerfile: src/CheckByStopBase.Api/Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - pg
+      - sftp
+      - check-by-stopbase-service-migrator
+
+  check-by-stopbase-service-migrator:
+    container_name: check-by-stopbase-service-migrator
+    environment: 
+      ConnectionStrings:main: host=check-by-stopbase-pg; port=5432; database=company; username=user; password=password;
+    build:
+      context: .
+      dockerfile: src/CheckByStopBase.Migrator/Dockerfile
+    depends_on:
+      - pg
+
   pg:
     container_name: check-by-stopbase-pg
     image: postgres:13.8
@@ -12,4 +43,18 @@ services:
       - "54321:5432"
     volumes:
       - './data:/var/lib/postgresql/data'
+
+  sftp:
+    container_name: sftp
+    image: atmoz/sftp
+    environment:
+      SFTP_USERNAME: app
+      SFTP_PASSWORD: password
+    command:
+      - app:password:1001::data
+    ports:
+      - "22:22"
+    volumes:
+      - "./sftp:/home/app/data/CompanyRegistry"
+      
 
