@@ -23,7 +23,7 @@ public sealed class CompanyGetOrCreateReportService : ICompanyGetOrCreateReportS
         return report;
     }
 
-    private bool ReportAlreadyExists(CompanyReport report) => report != null;
+    private bool ReportAlreadyExists(CompanyReport? report) => report != null;
 
     private async Task<CompanyReport> CreateReport(PartnerEnum processing)
     {

@@ -14,7 +14,7 @@ internal class CompanyReportPositionConfiguration : IEntityTypeConfiguration<Com
         builder.HasIndex(c => c.TaxNumber);
 
         builder.Property(c => c.CompanyType)
-            .HasMaxLength(5)
+            .HasMaxLength(20)
             .HasColumnName("company_type")
             .HasConversion(
                 v => v.ToString(),

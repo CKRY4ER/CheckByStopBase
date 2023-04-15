@@ -29,8 +29,6 @@ public sealed class CompanyParser : ICompanyParser
 
     public async Task Parse()
     {
-        //var converter = _factory.GetConverter(converterType);
-
         IEnumerable<CompanyRegistry> registry;
 
         using (var memoryStream = new MemoryStream())

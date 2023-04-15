@@ -90,8 +90,8 @@ namespace CheckByStopBase.CompanyStopBase.DAL.Migrations
 
                     b.Property<string>("CompanyType")
                         .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("character varying(5)")
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)")
                         .HasColumnName("company_type");
 
                     b.Property<long>("ReportId")

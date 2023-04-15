@@ -28,7 +28,7 @@ public static class ServiceCollectionExtensions
         where TRepositoryImplementation : class, TRepository
         where TRepositoryDbContext : DbContext
     {
-        collection.AddDbContextPool<TRepositoryDbContext>(builder =>
+        collection.AddDbContextFactory<TRepositoryDbContext>(builder =>
             builder.UseNpgsql(connectionString)
         );
 

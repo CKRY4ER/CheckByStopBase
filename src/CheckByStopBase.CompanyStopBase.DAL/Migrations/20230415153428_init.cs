@@ -49,7 +49,7 @@ namespace CheckByStopBase.CompanyStopBase.DAL.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     TaxNumber = table.Column<string>(type: "text", nullable: false),
-                    company_type = table.Column<string>(type: "character varying(5)", maxLength: 5, nullable: false),
+                    company_type = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
                     ReportId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
